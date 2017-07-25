@@ -1,0 +1,46 @@
+1、建立工作空间gohi_ws
+   mkdir -p ~/gohi_ws/src
+
+
+   cd ~/gohi_ws/src
+
+
+   catkin_init_workspace
+
+
+   cd ~/gohi_ws
+
+
+   catkin_make
+
+
+2、复制全部文件夹
+   base_simple_controller 、
+   Documentation、
+   gohi_2dnav、
+   gohi_bringup、
+   gohi_gazebo、
+   gohi_hw、
+   gohi_msgs、
+   到工作空间gohi_ws的src目录下
+
+3、
+   gedit ~/gohi_ws/src/gohi_hw/src/main.cpp 
+   (修改main.cpp中的HIGO_ROS higo(nh, "serial:///dev/ttyUSB0", "/home/ros/gohi_ws/src/gohi_hw/config.txt");文件路径为自己的config路径)
+
+4、
+   cd ~/gohi_ws/src/Documentation
+   sh environment_config.sh
+   sh rbx1-prereq.sh
+   sh rbx2-prereq.sh
+   echo "source ~/gohi_ws/devel/setup.bash" >> ~/.bashrc
+    
+
+5、cd src
+   catkin_make
+   编译正确，就可以正常运行了
+
+6、测试方法——键盘控制
+   roslaunch gohi_hw gohi_hw.launch
+   roslaunch gohi_hw keyboard_teleop.launch
+

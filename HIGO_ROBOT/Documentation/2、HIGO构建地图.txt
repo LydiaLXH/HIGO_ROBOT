@@ -1,0 +1,18 @@
+建图
+
+1、运行机器人抽象节点
+   roslaunch gohi_hw gohi_hw.launch
+2、运行激光雷达
+    roslaunch gohi_bringup hokuyo.launch
+3、运行建图节点
+   roslaunch gohi_2dnav move_base_gmapping.launch
+4、打开rviz
+   rosrun rviz rviz
+   选择gohi_2dnav/rviz/ HIGO_Robot.rviz 配置文件
+   可以正常建图了
+5、打开键盘控制
+   roslaunch gohi_hw keyboard_teleop.launch
+6、保存地图
+   rosrun map_server map_saver -f my_map
+   生成了2个文件.pgm 和 .yaml，
+   地图就保存到了当前目录，建议你把地图都放在gohi_2dnav/map/下便于统一管理。

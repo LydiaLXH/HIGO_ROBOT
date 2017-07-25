@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/asyncio/events.py", line 125, in _run
+    self._callback(*self._args)
+  File "/usr/local/lib/python3.5/site-packages/autobahn/asyncio/websocket.py", line 114, in process
+    self._dataReceived(data)
+  File "/usr/local/lib/python3.5/site-packages/autobahn/websocket/protocol.py", line 1175, in _dataReceived
+    self.consumeData()
+  File "/usr/local/lib/python3.5/site-packages/autobahn/websocket/protocol.py", line 1187, in consumeData
+    while self.processData() and self.state != WebSocketProtocol.STATE_CLOSED:
+  File "/usr/local/lib/python3.5/site-packages/autobahn/websocket/protocol.py", line 1553, in processData
+    fr = self.onFrameEnd()
+  File "/usr/local/lib/python3.5/site-packages/autobahn/websocket/protocol.py", line 1674, in onFrameEnd
+    self._onMessageEnd()
+  File "/usr/local/lib/python3.5/site-packages/autobahn/asyncio/websocket.py", line 159, in _onMessageEnd
+    res = self.onMessageEnd()
+  File "/usr/local/lib/python3.5/site-packages/autobahn/websocket/protocol.py", line 627, in onMessageEnd
+    self._onMessage(payload, self.message_is_binary)
+  File "/usr/local/lib/python3.5/site-packages/autobahn/asyncio/websocket.py", line 164, in _onMessage
+    res = self.onMessage(payload, isBinary)
+  File "/home/ros/blockly_ws/install_isolated/lib/robot_blockly/scripts/server.py", line 104, in onMessage
+    self.sendMessage('Error', isBinary)
+  File "/usr/local/lib/python3.5/site-packages/autobahn/websocket/protocol.py", line 2164, in sendMessage
+    assert(type(payload) == bytes)
+AssertionError
+
