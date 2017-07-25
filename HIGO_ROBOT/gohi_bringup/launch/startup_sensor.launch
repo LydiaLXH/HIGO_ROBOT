@@ -1,0 +1,24 @@
+<launch>
+    <arg name="leftCam" default="false" />
+    <arg name="rightCam" default="false" />
+
+    <!-- Launch the higo driver -->
+  
+
+    
+    <include file="$(find gohi_hw)/launch/gohi_hw.launch" />
+    <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+    <include file="$(find openni_launch)/launch/openni.launch" />
+
+    <include file="$(find simple_voice)/launch/nav_speaker.launch" />
+
+    <include if="$(arg leftCam)" file="$(find rbx1_vision)/launch/usb_cam.launch">
+                <arg name="video_device" value="/dev/video0" />
+    </include>
+
+    <include if="$(arg rightCam)" file="$(find rbx1_vision)/launch/usb_cam.launch">
+                <arg name="video_device" value="/dev/video1" />
+    </include>
+
+
+</launch>

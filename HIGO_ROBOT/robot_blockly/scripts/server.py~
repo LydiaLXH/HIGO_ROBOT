@@ -144,7 +144,6 @@ class MyServerProtocol(WebSocketServerProtocol):
        
         self.cmd_vel_pub.publish(self.cmd_vel)  
 
-
         self.sendMessage(payload, isBinary)
 
 
